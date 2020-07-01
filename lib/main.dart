@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(), // Constants.prefs.getBool("loggedIn")==true? MyHomePage() : LoginPage(),
+      home: Constants.prefs.getBool("loggedIn")==true? MyHomePage() : LoginPage(),
     );
   }
 }
