@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'package:Gocomet/utils/constants.dart' as global;
+import 'package:Devraj/utils/constants.dart' as global;
 
 class MyHomePage extends StatefulWidget {
 
@@ -10,7 +10,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String url = "https://gocomet.com/login";
+  String url = ""; // Enter your dessire url
 
   final flutterWebviewPlugin = new FlutterWebviewPlugin();
   StreamSubscription<WebViewStateChanged> _onchanged; // here we checked the url state if it loaded or start Load or abort Load
@@ -22,11 +22,9 @@ class _MyHomePageState extends State<MyHomePage> {
     _onchanged = flutterWebviewPlugin.onStateChanged.listen((WebViewStateChanged state) {
       if (mounted) {
         if(state.type== WebViewState.finishLoad){ // if the full website page loaded
-          flutterWebviewPlugin.evalJavascript('document.getElementById("normal_login_email").value="${global.username}"');
-          flutterWebviewPlugin.evalJavascript('document.getElementById("normal_login_password").value="${global.password}"');
-           flutterWebviewPlugin.evalJavascript('document.getElementById("normal_login_email").click()'); 
-           flutterWebviewPlugin.evalJavascript('document.getElementById("normal_login_password").click()'); 
-           flutterWebviewPlugin.evalJavascript('document.getElementById("login-submit").click()');  
+          flutterWebviewPlugin.evalJavascript('document.getElementById("normal_login_email").value="${global.username}"'); // Replace with the id of username field
+          flutterWebviewPlugin.evalJavascript('document.getElementById("normal_login_password").value="${global.password}"'); // Replace with the id of password field
+           flutterWebviewPlugin.evalJavascript('document.getElementById("login-submit").click()');  // Replace with Submit button id
 
          
         }else if (state.type== WebViewState.abortLoad){ // if there is a problem with loading the url
@@ -63,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
       hidden: false , // put it true if you want to show CircularProgressIndicator while waiting for the page to load
 
         appBar: AppBar(
-        title: Text("Gocomet"),
+        title: Text("Devraj Kumar"),
         centerTitle: true,
         elevation: 1, // give the appbar shadows
         iconTheme: IconThemeData(color: Colors.white),

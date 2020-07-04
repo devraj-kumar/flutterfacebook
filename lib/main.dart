@@ -1,5 +1,5 @@
-import 'package:Gocomet/UI/MyHomePage.dart';
-import 'package:Gocomet/login_page.dart';
+import 'package:Devraj/UI/MyHomePage.dart';
+import 'package:Devraj/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
