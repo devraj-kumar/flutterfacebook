@@ -6,14 +6,11 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is to help all those who are using webview in their app and want to avoid the problem of logging in again and again.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+This project has a login screen which store the crediantials using shared prefrences, and the saame crediantials are injecting into webview solving the problem.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# flutterfacebook
+In case of queries raise an issue.
+
+
