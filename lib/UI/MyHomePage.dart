@@ -9,7 +9,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String url = "https://fb.com/login";
+  String url = "https://gocomet.com/login";
 
   final flutterWebviewPlugin = new FlutterWebviewPlugin();
   StreamSubscription<WebViewStateChanged> _onchanged; // here we checked the url state if it loaded or start Load or abort Load

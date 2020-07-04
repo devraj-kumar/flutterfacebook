@@ -1,5 +1,4 @@
-import 'package:shared_preferences/shared_preferences.dart';
 
-class Constants {
-  static SharedPreferences prefs;
-}
+  library loading.global;
+   String username='';
+   String password='';
