@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:Gocomet/utils/constants.dart' as global;
 
 class MyHomePage extends StatefulWidget {
 
@@ -21,7 +22,13 @@ class _MyHomePageState extends State<MyHomePage> {
     _onchanged = flutterWebviewPlugin.onStateChanged.listen((WebViewStateChanged state) {
       if (mounted) {
         if(state.type== WebViewState.finishLoad){ // if the full website page loaded
-          print("loaded...");
+          flutterWebviewPlugin.evalJavascript('document.getElementById("normal_login_email").value="${global.username}"');
+          flutterWebviewPlugin.evalJavascript('document.getElementById("normal_login_password").value="${global.password}"');
+           flutterWebviewPlugin.evalJavascript('document.getElementById("normal_login_email").click()'); 
+           flutterWebviewPlugin.evalJavascript('document.getElementById("normal_login_password").click()'); 
+           flutterWebviewPlugin.evalJavascript('document.getElementById("login-submit").click()');  
+
+         
         }else if (state.type== WebViewState.abortLoad){ // if there is a problem with loading the url
           print("there is a problem...");
         } else if(state.type== WebViewState.startLoad){ // if the url started loading

@@ -9,26 +9,28 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  getValue() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      global.username = prefs.getString('username');
+      global.password = prefs.getString('password');
+    });
+    _usernameController.text = global.username;
+    _passwordController.text = global.password;
+    print(_usernameController.text);
+  }
+
   final formkey = GlobalKey<FormState>();
   final _usernameController = TextEditingController(text: global.username);
 
   final _passwordController = TextEditingController(text: global.password);
-  getValue() async{
-     SharedPreferences prefs = await SharedPreferences.getInstance();
-     setState(() {
-        global.username =   prefs.getString('username');
-        global.password =   prefs.getString('password');
-     });
-     
-
-  }
   @override
   void initState() {
-
     getValue();
     // TODO: implement initState
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                     TextFormField(
                       controller: _passwordController,
                       keyboardType: TextInputType.text,
-                      obscureText: true,
+                      // obscureText: true,
                       decoration: InputDecoration(
                           hintText: "Enter Password", labelText: "Password"),
                     ),
@@ -86,11 +88,8 @@ class _LoginPageState extends State<LoginPage> {
 
       SharedPreferences prefs = await SharedPreferences.getInstance();
 
-        await prefs.setString('username', _usernameController.text);
-        await prefs.setString('password', _passwordController.text);
-
-      
-
+      await prefs.setString('username', _usernameController.text);
+      await prefs.setString('password', _passwordController.text);
 
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => MyHomePage()));
